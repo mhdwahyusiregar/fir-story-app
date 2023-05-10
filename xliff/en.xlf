@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="en" source-language="id" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="sf9a862bfd829397e">
+  <source>Dasbor</source>
+  <target>Dashboard</target>
+</trans-unit>
+<trans-unit id="s8d9d6501de2bbd98">
+  <source>Tambah Data</source>
+  <target>Add Record</target>
+</trans-unit>
+<trans-unit id="s64ef2a6c2dd1d3d1">
+  <source>Edit</source>
+  <target>Change</target>
+</trans-unit>
+<trans-unit id="s2d24cdb7ea1cc40a">
+  <source>Dibuat dengan ❤ oleh Muhammad Wahyu Siregar</source>
+  <target>Built with ❤ by Muhammad Wahyu Siregar</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

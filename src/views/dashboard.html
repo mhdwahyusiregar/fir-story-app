@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="dist/app.css" />
+  </head>
+  <body>
+    <header>
+      <nav-app brandName="<%= brandName %>"></nav-app>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <div class="container py-5">
+          <h1 class="mb-3 text-center">List Story</h1>
+
+          <!-- Card Information -->
+          <div class="row card-deck mb-3" id="card-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="main-footer bg-secondary">
+        <div class="container px-3 py-4 text-uppercase">
+          <footer-app></footer-app>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <modal-stories
+      title="Detail Stories"
+      class="modal fade"
+      id="recordDetailModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+    ></modal-stories> -->
+  </body>
+</html>

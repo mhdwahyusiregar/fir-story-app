@@ -1,0 +1,61 @@
+@use '../vendors-extensions/bootstrap/components/card';
+@use '../vendors-extensions/bootstrap/components/custom-variables';
+
+// Functions Bootstrap
+//
+@import '../../../node_modules/bootstrap/scss/functions';
+
+// Variables Bootstrap
+//
+@import '../../../node_modules/bootstrap/scss/variables';
+
+// Custom variables
+// Override Bootstrap variables
+// $primary: $btn-primary-color;
+// $primary-hover: $btn-primary-hover-color;
+
+// $card-bg: $card-bg-color;
+// $card-border-color: $card-border-color;
+// $card-hover-bg: $card-hover-color;
+
+// // Use Bootstrap variables
+// $body-bg: $body-bg;
+
+// Konfigurasi Bootstrap
+//
+@import '../../../node_modules/bootstrap/scss/maps';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/root';
+@import '../../../node_modules/bootstrap/scss/utilities';
+@import '../../../node_modules/bootstrap/scss/reboot';
+
+//
+// Layouts dan components
+//
+@import '../../../node_modules/bootstrap/scss/type';
+@import '../../../node_modules/bootstrap/scss/images';
+@import '../../../node_modules/bootstrap/scss/containers';
+@import '../../../node_modules/bootstrap/scss/grid';
+
+@import '../../../node_modules/bootstrap/scss/helpers';
+
+// Komponen-Komponen
+@import '../../../node_modules/bootstrap/scss/tables';
+@import '../../../node_modules/bootstrap/scss/forms';
+@import '../../../node_modules/bootstrap/scss/buttons';
+@import '../../../node_modules/bootstrap/scss/transitions';
+@import '../../../node_modules/bootstrap/scss/dropdown';
+@import '../../../node_modules/bootstrap/scss/nav';
+@import '../../../node_modules/bootstrap/scss/navbar'; // Requires nav
+@import '../../../node_modules/bootstrap/scss/card';
+// @import '../../../node_modules/bootstrap/scss/close';
+// @import '../../../node_modules/bootstrap/scss/modal';
+
+//
+// Utilities API untuk menghasilkan utility classes
+//
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+
+//
+// Tambahkan custom code di sini
+//

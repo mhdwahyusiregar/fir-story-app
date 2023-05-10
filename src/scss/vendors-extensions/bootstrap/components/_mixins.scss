@@ -1,0 +1,4 @@
+@mixin trapezium-shape($skew-angle: 10deg) {
+  transform: skewY($skew-angle);
+  clip-path: polygon(0 $skew-angle, 100% 0, 100% calc(100% - #{$skew-angle}), 0 100%);
+}
