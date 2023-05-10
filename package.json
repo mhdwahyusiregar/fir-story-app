@@ -4,7 +4,7 @@
   "description": "Money Tracker App is an app to create snapshot for every transaction that the user has doing",
   "main": "index.js",
   "scripts": {
-    "build:prod": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack serve --config webpack.dev.js",
     "sass": "sass src/scss/main.scss dist/app.css",
     "prettier:check": "prettier --check .",
