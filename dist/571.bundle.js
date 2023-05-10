@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmoney_tracker_app=self.webpackChunkmoney_tracker_app||[]).push([[571],{571:(a,e,d)=>{d.r(e),d.d(e,{templates:()=>r});var r={s2d24cdb7ea1cc40a:"Built with ❤ by Muhammad Wahyu Siregar",s64ef2a6c2dd1d3d1:"Change",s8d9d6501de2bbd98:"Add Record",sf9a862bfd829397e:"Dashboard"}}}]);
