@@ -70,17 +70,17 @@ const Stories = {
     return await updateDoc(storiesRef, data);
   },
 
-  async guest({ description, photo }) {
-    const data = { description, photo };
+  // async guest({ description, photo }) {
+  //   const data = { description, photo };
 
-    return await axios.post(ApiEndpoint.GUEST_USER_STORIES, data, {
-      headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLVdHR0paSTQtX09tSDVyTmQiLCJpYXQiOjE2ODM1NDAwOTl9.OtTjY5nxUdmixg86BpMfHlsyOdKJQw1f4DavyJotQZY',
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-  },
+  //   return await axios.post(ApiEndpoint.GUEST_USER_STORIES, data, {
+  //     headers: {
+  //       Authorization:
+  //         'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLVdHR0paSTQtX09tSDVyTmQiLCJpYXQiOjE2ODM1NDAwOTl9.OtTjY5nxUdmixg86BpMfHlsyOdKJQw1f4DavyJotQZY',
+  //       'Content-Type': 'multipart/form-data',
+  //     },
+  //   });
+  // },
 
   async updateProfile(user, { displayName = null } = {}) {
     return await updateProfile(user, {
