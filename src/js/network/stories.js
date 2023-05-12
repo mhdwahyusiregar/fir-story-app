@@ -1,90 +1,52 @@
-// import axios from 'axios';
-// import Config from '../config/config';
-// import Utils from '../utils/utils';
-// import ApiEndpoint from '../config/api-endpoint';
-import { auth, db, storage } from '../utils/firebase';
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  updateDoc,
-  where,
-} from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import axios from 'axios';
+import Config from '../config/config';
+import Utils from '../utils/utils';
+import ApiEndpoint from '../config/api-endpoint';
 
 const Stories = {
   async getAll() {
-    const storiesRef = collection(db, 'stories');
-    const storiesQuery = query(storiesRef, where('userId', '==', auth.currentUser.uid));
-    const querySnapshot = await getDocs(storiesQuery);
-
-    const stories = [];
-    querySnapshot.forEach((item) => {
-      stories.push({
-        id: item.id,
-        ...item.data(),
-      });
+    return await axios.get(ApiEndpoint.GET_ALL_STORIES, {
+      headers: {
+        Authorization: `Bearer ${Utils.getUserToken(Config.USER_TOKEN_KEY)}`,
+      },
     });
-    return stories;
-  },
-
-  async getById(id) {
-    const storiesRef = doc(db, 'storiess', id);
-    const docSnapshot = await getDoc(storiesRef);
-    return docSnapshot.data();
   },
 
   async store({ description, photo }) {
-    const storiesRef = collection(db, 'stories');
     const data = { description, photo };
 
-    return await addDoc(storiesRef, {
-      ...data,
-      userId: auth.currentUser.uid,
+    return await axios.post(ApiEndpoint.STORE_STORIES, data, {
+      headers: {
+        Authorization: `Bearer ${Utils.getUserToken(Config.USER_TOKEN_KEY)}`,
+        'Content-Type': 'multipart/form-data',
+      },
     });
   },
 
-  async storeEvidence(file) {
-    const storageRef = ref(storage, `stories/${auth.currentUser.uid}/${file.name}`);
-    return await uploadBytes(storageRef, file);
-  },
-  async getEvidenceURL(fileFullPath) {
-    const storageRef = ref(storage, fileFullPath);
-    return await getDownloadURL(storageRef);
-  },
-  async destroyEvidence(fileFullPath) {
-    const desertRef = ref(storage, fileFullPath);
-    return await deleteObject(desertRef);
+  async getById(id) {
+    return await axios.get(ApiEndpoint.GET_BY_ID_STORIES(id), {
+      headers: {
+        Authorization: `Bearer ${Utils.getUserToken(Config.USER_TOKEN_KEY)}`,
+      },
+    });
   },
 
-  async update({ id, name, description, photoUrl, createdAt, lat, lon }) {
-    const storiesRef = doc(db, 'stories', id);
-    const data = { name, description, photoUrl, createdAt, lat, lon };
+  async update({ id, name, date, amount, type, description, evidence }) {
+    const data = { name, date, amount, type, description, evidence };
 
-    if (!data.photoUrl) delete data.photoUrl;
-
-    return await updateDoc(storiesRef, data);
+    return await axios.put(ApiEndpoint.UPDATE_STORIES(id), data, {
+      headers: {
+        Authorization: `Bearer ${Utils.getUserToken(Config.USER_TOKEN_KEY)}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   },
 
-  // async guest({ description, photo }) {
-  //   const data = { description, photo };
-
-  //   return await axios.post(ApiEndpoint.GUEST_USER_STORIES, data, {
-  //     headers: {
-  //       Authorization:
-  //         'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLVdHR0paSTQtX09tSDVyTmQiLCJpYXQiOjE2ODM1NDAwOTl9.OtTjY5nxUdmixg86BpMfHlsyOdKJQw1f4DavyJotQZY',
-  //       'Content-Type': 'multipart/form-data',
-  //     },
-  //   });
-  // },
-
-  async updateProfile(user, { displayName = null } = {}) {
-    return await updateProfile(user, {
-      displayName,
+  async destroy(id) {
+    return await axios.delete(ApiEndpoint.DESTROY_STORIES(id), {
+      headers: {
+        Authorization: `Bearer ${Utils.getUserToken(Config.USER_TOKEN_KEY)}`,
+      },
     });
   },
 };

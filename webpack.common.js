@@ -88,12 +88,12 @@ module.exports = {
       template: path.resolve(__dirname, 'src/views/storys/add.html'),
       ...htmlWebpackPluginConfig,
     }),
-    new HtmlWebpackPlugin({
-      title: 'Guest User',
-      filename: 'storys/guest-user.html',
-      template: path.resolve(__dirname, 'src/views/storys/guest-user.html'),
-      ...htmlWebpackPluginConfig,
-    }),
+    // new HtmlWebpackPlugin({
+    //   title: 'Guest Akun',
+    //   filename: 'storys/guest.html',
+    //   template: path.resolve(__dirname, 'src/views/storys/guest.html'),
+    //   ...htmlWebpackPluginConfig,
+    // }),
 
     // Auth pages
     new HtmlWebpackPlugin({

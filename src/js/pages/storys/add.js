@@ -1,9 +1,9 @@
-// import CheckUserAuth from '../auth/check-user-auth';
+import CheckUserAuth from '../auth/check-user-auth';
 import Stories from '../../network/stories';
 
 const Add = {
   async init() {
-    // CheckUserAuth.checkLoginState();
+    CheckUserAuth.checkLoginState();
     this._initialListener();
   },
 
@@ -35,19 +35,12 @@ const Add = {
       console.log(formData);
 
       try {
-        const storageResponse = await Stories.storeEvidence(formData.photo);
-        const response = await Stories.store({
-          ...formData,
-          photo: storageResponse.metadata.fullPath,
-          // photo: formData.photo.name,
-        });
+        const response = await Stories.store(formData);
         window.alert('New transaction added successfully');
-
         this._goToDashboardPage();
       } catch (error) {
         console.error(error);
       }
-      // this._goToDashboardPage();
     }
   },
 

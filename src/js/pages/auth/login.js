@@ -1,11 +1,11 @@
 import Auth from '../../network/auth';
-// import Config from '../../config/config';
-// import Utils from '../../utils/utils';
-// import CheckUserAuth from './check-user-auth';
+import Config from '../../config/config';
+import Utils from '../../utils/utils';
+import CheckUserAuth from '../auth/check-user-auth';
 
 const Login = {
   async init() {
-    // CheckUserAuth.checkLoginState();
+    CheckUserAuth.checkLoginState();
 
     this._initialListener();
   },
@@ -23,28 +23,6 @@ const Login = {
       },
       false,
     );
-    // Tombol Guest User
-    const guestUserButton = document.querySelector('#guestUserButton');
-    guestUserButton.addEventListener('click', this._loginAsGuestUser.bind(this));
-  },
-
-  async _loginAsGuestUser() {
-    try {
-      // Melakukan login sebagai guest user (tanpa autentikasi)
-      // dengan menggunakan username "guest" dan password "guest123"
-      const response = await Auth.login({
-        email: 'guest123@gmail.com',
-        password: 'guest123',
-      });
-
-      // Menyimpan informasi pengguna guest user di localStorage atau sesuai kebutuhan
-      localStorage.setItem('guestUser', JSON.stringify(response));
-
-      // masuk ke halaman dashboard  setelah login
-      window.location.href = '/'; // Sesuaikan dengan halaman dashboard yang kita miliki
-    } catch (error) {
-      console.error(error);
-    }
   },
 
   async _getLogged() {
@@ -59,10 +37,9 @@ const Login = {
           email: formData.email,
           password: formData.password,
         });
-        // Utils.setUserToken(Config.USER_TOKEN_KEY, response.data.loginResult.token);
+        Utils.setUserToken(Config.USER_TOKEN_KEY, response.data.loginResult.token);
         window.alert('Signed user in detected');
-
-        // this._goToDashboardPage();
+        this._goToDashboardPage();
       } catch (error) {
         console.error(error);
       }

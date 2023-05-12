@@ -7,10 +7,10 @@ import './components/index';
 // Import javascript file as needed
 import Dashboard from './pages/dashboard';
 import Add from './pages/storys/add';
-import GuestUser from './pages/storys/guest-user';
+
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
-
+// import GuestButton from './pages/auth/gues-user';
 import './utils/firebase';
 import * as bootstrap from 'bootstrap';
 import CheckUserAuth from './pages/auth/check-user-auth';
@@ -18,7 +18,7 @@ import CheckUserAuth from './pages/auth/check-user-auth';
 const routes = {
   '/': Dashboard,
   '/storys/add.html': Add,
-  '/storys/guest-user.html': GuestUser,
+  // '/storys/guest.html': GuestButton,
   '/auth/login.html': Login,
   '/auth/register.html': Register,
 };
@@ -38,8 +38,6 @@ const initPages = () => {
 window.addEventListener('DOMContentLoaded', async () => {
   initPages();
 
-  CheckUserAuth.checkLoginState(async () => {
-    const route = detectRoute();
-    await route.init();
-  });
+  const route = detectRoute();
+  route.init();
 });
